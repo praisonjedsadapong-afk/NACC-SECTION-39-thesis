@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สารนิพนธ์ — [รอกำหนดชื่อเรื่อง]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141414; --muted:#5d636b; --rule:#d5d9df; --accent:#1f3864;
+  --bg:#eceef1; --paper:#ffffff; --panel:#f4f6f8; --sidebg:#f3f5f8;
+  --mark:#e8edf6; --hover:#e6ebf3;
+  --side:17.5rem;
+  --pw:8.27in; --ph:11.69in;
+  --mt:1.5in; --ml:1.5in; --mb:1in; --mr:1in;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e9e9e7; --muted:#a3a9b3; --rule:#333944; --accent:#9db4e0;
+    --bg:#101215; --paper:#191c21; --panel:#1e2228; --sidebg:#16191e;
+    --mark:#232a38; --hover:#242933;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  /* Angsana New เป็นฟอนต์ที่คู่มือกำหนด ถ้าเครื่องไม่มีจะถอยไปใช้ฟอนต์ไทยที่ใกล้เคียง */
+  font-family:"Angsana New","AngsanaUPC","Norasi","Sarabun","Noto Sans Thai",serif;
+  font-size:21px;line-height:1.44;
+}
+.shell{display:grid;grid-template-columns:var(--side) minmax(0,1fr);align-items:start}
+aside.side{position:sticky;top:0;height:100vh;overflow-y:auto;overscroll-behavior:contain;
+  background:var(--sidebg);border-right:1px solid var(--rule);padding:1.5rem 1rem 3rem;
+  font-family:"Sarabun","Noto Sans Thai",system-ui,sans-serif;font-size:14px;line-height:1.45}
+aside.side .sidehead{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 .2rem .5rem}
+aside.side .sidedoc{font-size:.88rem;font-weight:700;margin:0 0 1rem .5rem;line-height:1.35}
+aside.side ul{list-style:none;margin:0;padding:0}
+aside.side li.sc{margin:.1rem 0 .5rem}
+aside.side li.sc>a{font-weight:700}
+aside.side li.sc>a .cn{color:var(--accent)}
+aside.side li.sA>a{padding-left:1.1rem}
+aside.side li.sB>a{padding-left:2.1rem;color:var(--muted);font-size:.95em}
+aside.side a{color:inherit;text-decoration:none;display:block;padding:.16rem .5rem;border-radius:5px;border-left:2px solid transparent}
+aside.side a:hover{background:var(--hover)}
+aside.side a.active{background:var(--mark);border-left-color:var(--accent);color:var(--accent);font-weight:600}
+
+main{min-width:0;padding:1.6rem 1.2rem 5rem}
+/* กระดาษ A4 ขอบ บน-ซ้าย 1.5 นิ้ว ล่าง-ขวา 1 นิ้ว ตามคู่มือ */
+.sheet{
+  background:var(--paper);width:var(--pw);min-height:var(--ph);margin:0 auto 1.4rem;
+  padding:var(--mt) var(--mr) var(--mb) var(--ml);
+  box-shadow:0 1px 3px rgba(0,0,0,.14);position:relative;
+}
+.sheet.chapter{padding-top:2in}            /* หน้าแรกของบท ด้านบน 2 นิ้ว */
+.folio{position:absolute;top:1in;right:1in;transform:translateY(-100%);font-size:16pt;color:var(--ink)}
+
+p{margin:0}
+.b{text-indent:.5in;text-align:justify;text-justify:inter-word}
+.b.noind{text-indent:0}
+.sp{height:1.44em}
+.gap1{height:1.44em}
+h2.chtitle{text-align:center;font-size:20pt;font-weight:700;margin:0 0 1.5em;line-height:1.44;scroll-margin-top:1rem}
+h2.chtitle .chno,h2.chtitle .chname{display:block}
+h3.hA{font-size:18pt;font-weight:700;margin:1.5em 0 0;line-height:1.44;scroll-margin-top:1rem}
+h4.hB{font-size:16pt;font-weight:700;margin:0;text-indent:.5in;line-height:1.44;scroll-margin-top:1rem}
+h5.hC{font-size:16pt;font-weight:700;margin:0;text-indent:1in;line-height:1.44}
+.li{padding-left:1in;position:relative;text-align:justify}
+.li.lv1{padding-left:1.25in}
+.li .mk{position:absolute;left:.75in;color:var(--ink)}
+.li.lv1 .mk{left:1in}
+.quote{margin:0;padding-left:1in;padding-right:.5in;text-align:justify}
+.pl{margin:0}
+.right{text-align:right}
+.ctr{text-align:center}
+.secheadctr{text-align:center;font-size:18pt;font-weight:700;margin:0 0 1.44em}
+.secheadl{font-weight:700;margin:1.5em 0 0}
+.tcap{font-weight:700;margin:1.5em 0 0}
+.bib{padding-left:.44in;text-indent:-.44in;text-align:justify}
+
+.cover{min-height:8.5in;display:flex;flex-direction:column;align-items:center;text-align:center}
+.covt{font-size:20pt;font-weight:700;margin:0 0 .6em}
+.covn{font-size:20pt;margin:0}
+.covf{font-weight:700;margin:0}
+.covgap{flex:1 1 auto;min-height:1.2in}
+.fld{display:flex;gap:.3in;margin:0}
+.fld .fl{flex:0 0 2.2in;font-weight:700}
+.fld .fv{flex:1 1 auto}
+.fld.vt .fl{font-weight:400}
+.sig{margin:0 0 0 2.4in}
+.sig .pr{margin-left:.25in}
+
+.toc{display:flex;align-items:baseline;gap:.4em;margin:0}
+.toc .tl{flex:0 1 auto}
+.toc .tl a{color:inherit;text-decoration:none}
+.toc .tl a:hover{text-decoration:underline;color:var(--accent)}
+.toc::after{content:"";flex:1 1 auto;border-bottom:1px dotted var(--muted);transform:translateY(-.25em)}
+.toc .tp{flex:0 0 auto;order:3}
+.toc.t1 .tl{padding-left:.25in;font-weight:700}
+.toc.t2 .tl{padding-left:.5in}
+.toc.t3 .tl{padding-left:.75in}
+
+.tw{margin:1em 0;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14pt;table-layout:fixed}
+th,td{border:1px solid var(--ink);padding:.04in .06in;vertical-align:top;text-align:left;overflow-wrap:anywhere}
+thead th{background:var(--panel);font-weight:700}
+
+sup.fnref{font-size:.62em;line-height:0}
+sup.fnref a{color:var(--accent);text-decoration:none;padding:0 .08em}
+.notes .fnlist{font-size:14pt;padding-left:.35in;margin:0}
+.notes .fnlist li{margin:0 0 .25em;overflow-wrap:anywhere;scroll-margin-top:1rem}
+.notes .fnlist li:target{background:var(--mark)}
+.notes a.back{text-decoration:none;color:var(--accent);margin-right:.15em}
+
+button.tocbtn{display:none;position:fixed;left:14px;bottom:14px;z-index:40;
+  font-family:"Sarabun",system-ui,sans-serif;font-size:.9rem;font-weight:600;color:#fff;background:var(--accent);
+  border:0;border-radius:999px;padding:.6rem 1.05rem;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.28)}
+.scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:30}
+@media (max-width:1180px){
+  .shell{grid-template-columns:1fr}
+  main{padding:1rem .6rem 5rem}
+  aside.side{position:fixed;top:0;left:0;z-index:35;width:min(20rem,86vw);height:100dvh;
+    transform:translateX(-102%);transition:transform .22s ease;box-shadow:0 0 28px rgba(0,0,0,.2)}
+  body.nav-open aside.side{transform:none}
+  body.nav-open .scrim{display:block}
+  button.tocbtn{display:block}
+}
+@media (max-width:900px){
+  :root{--pw:100%;--mt:1rem;--ml:1rem;--mb:1rem;--mr:1rem}
+  html,body,.shell,main{overflow-x:clip;max-width:100%}
+  .bib,.fld .fv{overflow-wrap:anywhere}
+  .sheet{width:100%;min-height:0;box-shadow:none;border-bottom:1px solid var(--rule)}
+  .sheet.chapter{padding-top:1.4rem}
+  .folio{display:none}
+  .fld{display:block}
+  .fld .fl{display:block}
+  .sig{margin-left:0}
+  table{min-width:30rem}
+}
+@media print{
+  @page{size:A4;margin:1.5in 1in 1in 1.5in}
+  body{background:#fff;font-size:16pt}
+  .shell{display:block}
+  aside.side,button.tocbtn,.scrim,.folio{display:none}
+  main{padding:0}
+  .sheet{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;break-after:page}
+  .sheet:last-child{break-after:auto}
+  .sheet.chapter{padding-top:.5in}
+  h3.hA,h4.hB,h5.hC,.secheadctr{break-after:avoid}
+  table,.tw{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side" id="side">
+    <p class="sidehead">สารบัญ</p>
+    <p class="sidedoc">สารนิพนธ์ — [รอกำหนดชื่อเรื่อง]</p>
+    <nav><ul><li class="sc"><a href="#abs-th">บทคัดย่อ</a></li><li class="sc"><a href="#ch1"><span class="cn">บทที่ 1</span> บทนำ</a></li><li class="sc"><a href="#ch2"><span class="cn">บทที่ 2</span> แนวคิด ทฤษฎี [รอกำหนด]</a></li><li class="sc"><a href="#ch3"><span class="cn">บทที่ 3</span> กฎหมายที่เกี่ยวข้อง [รอกำหนด]</a></li><li class="sc"><a href="#ch4"><span class="cn">บทที่ 4</span> การวิเคราะห์ปัญหาทางกฎหมาย [รอกำหนด]</a></li><li class="sc"><a href="#ch5"><span class="cn">บทที่ 5</span> บทสรุปและข้อเสนอแนะ</a></li><li class="sc"><a href="#biblio">บรรณานุกรม</a></li></ul></nav>
+  </aside>
+  <main>
+<section class="sheet cover-sheet" ><div class="cover">
+<p class="covt">[ชื่อเรื่องสารนิพนธ์ — รอกำหนด]</p>
+<p class="covt">[THESIS TITLE — TO BE DEFINED]</p>
+<div class="covgap"></div>
+<p class="covn">[ชื่อ-นามสกุลผู้เขียน]</p>
+<p class="covn">[AUTHOR NAME]</p>
+<div class="covgap"></div>
+<p class="covf">สารนิพนธ์นี้เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรนิติศาสตรมหาบัณฑิต</p>
+<p class="covf">[กลุ่มวิชากฎหมาย..........]</p>
+<p class="covf">คณะนิติศาสตร์</p>
+<p class="covf">มหาวิทยาลัยศรีปทุม</p>
+<p class="covf">พ.ศ. [พ.ศ. ที่ส่งเล่ม]</p>
+<p class="covf">ลิขสิทธิ์ของคณะนิติศาสตร์ มหาวิทยาลัยศรีปทุม</p>
+</div></section>
+<section class="sheet cover-sheet" ><div class="cover">
+<p class="covt">[THESIS TITLE — TO BE DEFINED]</p>
+<div class="covgap"></div>
+<p class="covn">[AUTHOR NAME]</p>
+<div class="covgap"></div>
+<p class="covf">A THEMATIC PAPER SUBMITTED IN PARTIAL FULFILLMENT</p>
+<p class="covf">OF THE REQUIREMENTS FOR THE DEGREE OF MASTER OF LAWS</p>
+<p class="covf">SCHOOL OF LAW</p>
+<p class="covf">SRIPATUM UNIVERSITY</p>
+<p class="covf">[YEAR]</p>
+<p class="covf">COPYRIGHT OF SCHOOL OF LAW SRIPATUM UNIVERSITY</p>
+</div></section>
+<section class="sheet " id="abs-th"><div class="folio">I</div><div class="fld"><span class="fl">สารนิพนธ์เรื่อง</span><span class="fv">[ชื่อเรื่องสารนิพนธ์ — รอกำหนด]</span></div>
+<div class="fld"><span class="fl">คำสำคัญ</span><span class="fv">[รอเขียน]</span></div>
+<div class="fld"><span class="fl">นักศึกษา</span><span class="fv">[ชื่อ-นามสกุลผู้เขียน]</span></div>
+<div class="fld"><span class="fl">อาจารย์ที่ปรึกษาสารนิพนธ์</span><span class="fv">[ชื่ออาจารย์ที่ปรึกษาสารนิพนธ์]</span></div>
+<div class="fld"><span class="fl">อาจารย์ที่ปรึกษาสารนิพนธ์ร่วม (ถ้ามี)</span><span class="fv"></span></div>
+<div class="fld"><span class="fl">หลักสูตร</span><span class="fv">นิติศาสตรมหาบัณฑิต [กลุ่มวิชากฎหมาย..........]</span></div>
+<div class="fld"><span class="fl">พ.ศ.</span><span class="fv">[พ.ศ. ที่ส่งเล่ม]</span></div>
+<p class="secheadctr">บทคัดย่อ</p>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet " id="abs-en"><div class="folio">II</div><div class="fld"><span class="fl">THEMATIC TITLE</span><span class="fv">[THESIS TITLE — TO BE DEFINED]</span></div>
+<div class="fld"><span class="fl">KEYWORDS</span><span class="fv">FLAGRANT OFFENCE / ARREST WITHOUT WARRANT / SEARCH WITHOUT WARRANT / NACC / NACC REGULATION</span></div>
+<div class="fld"><span class="fl">STUDENT</span><span class="fv">[AUTHOR NAME]</span></div>
+<div class="fld"><span class="fl">THEMATIC ADVISOR</span><span class="fv">[ชื่ออาจารย์ที่ปรึกษาสารนิพนธ์]</span></div>
+<div class="fld"><span class="fl">LEVEL OF STUDY</span><span class="fv">MASTER OF LAWS [LAW GROUP]</span></div>
+<div class="fld"><span class="fl">FACULTY</span><span class="fv">SCHOOL OF LAW SRIPATUM UNIVERSITY</span></div>
+<div class="fld"><span class="fl">YEAR</span><span class="fv">[YEAR]</span></div>
+<p class="secheadctr">ABSTRACT</p>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet " id="ack"><div class="folio">III</div><p class="secheadctr">กิตติกรรมประกาศ</p>
+<p class="b">สารนิพนธ์ฉบับนี้สำเร็จลุล่วงได้ด้วยความกรุณาของ [ชื่ออาจารย์ที่ปรึกษาสารนิพนธ์] อาจารย์ที่ปรึกษาสารนิพนธ์ ซึ่งให้คำแนะนำ ข้อคิดเห็น และตรวจทานงานตลอดระยะเวลาที่ศึกษา ผู้เขียนขอกราบขอบพระคุณเป็นอย่างสูง ณ โอกาสนี้</p>
+<p class="b">ผู้เขียนขอกราบขอบพระคุณ [ชื่อประธานกรรมการสอบ] และ [ชื่อกรรมการสอบ] ที่กรุณาสละเวลาเป็นกรรมการสอบสารนิพนธ์และให้ข้อเสนอแนะ [ปรับหรือตัดข้อความนี้ตามรายชื่อกรรมการสอบจริง] และขอขอบคุณคณาจารย์คณะนิติศาสตร์ มหาวิทยาลัยศรีปทุม ที่ให้ความรู้ในหลักสูตรนิติศาสตรมหาบัณฑิต</p>
+<p class="b">[ข้อความขอบคุณผู้เขียนงานวิจัยที่ใช้อ้างอิง — รอเขียนเมื่อกำหนดบรรณานุกรม]</p>
+<p class="b">[ข้อความขอบคุณครอบครัว เพื่อนร่วมงาน หรือผู้ให้ความช่วยเหลืออื่น ๆ ถ้ามี]</p>
+<p class="b">หากสารนิพนธ์ฉบับนี้มีประโยชน์ต่อการศึกษาและการพัฒนากฎหมายในเรื่องที่ศึกษา ผู้เขียนขอมอบความดีนั้นแก่ผู้มีพระคุณทุกท่าน ส่วนข้อบกพร่องใด ๆ เป็นความรับผิดชอบของผู้เขียนแต่ผู้เดียว</p>
+<div class="gap1"></div>
+<p class="sig">[ชื่อ-นามสกุลผู้เขียน]</p>
+<p class="sig">[เดือน ปี]</p></section>
+<section class="sheet " id="toc"><div class="folio">IV</div><p class="secheadctr">สารบัญ</p>
+<p class="toc t0"><span class="tl"><a href="#abs-th">บทคัดย่อภาษาไทย</a></span><span class="tp">I</span></p>
+<p class="toc t0"><span class="tl"><a href="#abs-en">บทคัดย่อภาษาอังกฤษ</a></span><span class="tp">II</span></p>
+<p class="toc t0"><span class="tl"><a href="#ack">กิตติกรรมประกาศ</a></span><span class="tp">III</span></p>
+<p class="toc t0"><span class="tl"><a href="#toc">สารบัญ</a></span><span class="tp">IV</span></p>
+<p class="secheadl">บทที่</p>
+<p class="toc t1"><span class="tl"><a href="#ch1">1&nbsp;&nbsp;บทนำ</a></span><span class="tp"></span></p>
+<p class="toc t1"><span class="tl"><a href="#ch2">2&nbsp;&nbsp;แนวคิด ทฤษฎี [รอกำหนด]</a></span><span class="tp"></span></p>
+<p class="toc t1"><span class="tl"><a href="#ch3">3&nbsp;&nbsp;กฎหมายที่เกี่ยวข้อง [รอกำหนด]</a></span><span class="tp"></span></p>
+<p class="toc t1"><span class="tl"><a href="#ch4">4&nbsp;&nbsp;การวิเคราะห์ปัญหาทางกฎหมาย [รอกำหนด]</a></span><span class="tp"></span></p>
+<p class="toc t1"><span class="tl"><a href="#ch5">5&nbsp;&nbsp;บทสรุปและข้อเสนอแนะ</a></span><span class="tp"></span></p>
+<p class="toc t0"><span class="tl"><a href="#biblio">บรรณานุกรม</a></span><span class="tp"></span></p>
+<p class="toc t0"><span class="tl"><a href="#vita">ประวัติผู้เขียน</a></span><span class="tp"></span></p></section>
+<section class="sheet chapter"><h2 class="chtitle" id="ch1"><span class="chno">บทที่ 1</span><span class="chname">บทนำ</span></h2>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet chapter"><h2 class="chtitle" id="ch2"><span class="chno">บทที่ 2</span><span class="chname">แนวคิด ทฤษฎี [รอกำหนด]</span></h2>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet chapter"><h2 class="chtitle" id="ch3"><span class="chno">บทที่ 3</span><span class="chname">กฎหมายที่เกี่ยวข้อง [รอกำหนด]</span></h2>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet chapter"><h2 class="chtitle" id="ch4"><span class="chno">บทที่ 4</span><span class="chname">การวิเคราะห์ปัญหาทางกฎหมาย [รอกำหนด]</span></h2>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet chapter"><h2 class="chtitle" id="ch5"><span class="chno">บทที่ 5</span><span class="chname">บทสรุปและข้อเสนอแนะ</span></h2>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet " id="biblio"><p class="secheadctr">บรรณานุกรม</p>
+<p class="b">[รอเขียน]</p>
+</section>
+<section class="sheet " id="vita"><p class="secheadctr">ประวัติผู้เขียน</p>
+<div class="fld vt"><span class="fl">ชื่อ - สกุล</span><span class="fv">[ชื่อ-นามสกุลผู้เขียน]</span></div>
+<div class="fld vt"><span class="fl">วัน เดือน ปี เกิด</span><span class="fv">[วัน เดือน ปี เกิด]</span></div>
+<div class="fld vt"><span class="fl">สถานที่เกิด</span><span class="fv">[จังหวัด]</span></div>
+<div class="fld vt"><span class="fl">สถานที่อยู่ปัจจุบัน</span><span class="fv">[ที่อยู่ปัจจุบัน]</span></div>
+<p class="secheadl">วุฒิการศึกษา</p>
+<div class="fld vt"><span class="fl">พ.ศ. ..........</span><span class="fv">นิติศาสตรบัณฑิต [ชื่อสถาบัน]</span></div>
+<p class="secheadl">ตำแหน่งและประวัติการทำงาน</p>
+<div class="fld vt"><span class="fl">พ.ศ. .......... - ปัจจุบัน</span><span class="fv">[ตำแหน่ง หน่วยงาน]</span></div></section>
+<section class="sheet notes" id="notes"><p class="secheadctr">เชิงอรรถ</p><ol class="fnlist"></ol></section>
+  </main>
+  <div class="scrim" id="scrim"></div>
+  <button class="tocbtn" id="tocbtn" aria-expanded="false">สารบัญ</button>
+</div>
+<script>
+(function(){
+  var b=document.body,btn=document.getElementById('tocbtn'),scrim=document.getElementById('scrim');
+  function set(o){b.classList.toggle('nav-open',o);btn.setAttribute('aria-expanded',o?'true':'false');}
+  btn.addEventListener('click',function(){set(!b.classList.contains('nav-open'));});
+  scrim.addEventListener('click',function(){set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  var links=[].slice.call(document.querySelectorAll('aside.side a'));
+  links.forEach(function(a){a.addEventListener('click',function(){if(window.matchMedia('(max-width:1180px)').matches)set(false);});});
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var targets=Object.keys(map).map(function(id){return document.getElementById(id);}).filter(Boolean);
+  var cur=null;
+  function mark(a){if(cur===a)return;if(cur)cur.classList.remove('active');cur=a;if(!a)return;a.classList.add('active');
+    var s=document.getElementById('side');
+    if(s&&s.scrollHeight>s.clientHeight){var r=a.getBoundingClientRect(),sr=s.getBoundingClientRect();
+      if(r.top<sr.top+40||r.bottom>sr.bottom-40)a.scrollIntoView({block:'center'});}}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(){
+      var best=null,bd=Infinity;
+      targets.forEach(function(t){var r=t.getBoundingClientRect();
+        if(r.top<=140&&140-r.top<bd){bd=140-r.top;best=t;}});
+      if(best)mark(map[best.id]);
+    },{rootMargin:'-120px 0px -70% 0px',threshold:0});
+    targets.forEach(function(t){io.observe(t);});
+  }
+})();
+</script>
+</body>
+</html>
